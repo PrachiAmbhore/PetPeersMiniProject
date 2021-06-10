@@ -9,5 +9,8 @@
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/HCLDemo</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <property name="hbm2ddl.auto">update</property>
+        
+        <mapping resource="com/casestudy/main/hibernate.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

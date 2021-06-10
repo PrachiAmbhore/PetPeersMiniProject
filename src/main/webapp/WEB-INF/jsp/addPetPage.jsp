@@ -5,21 +5,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+
 <style type="text/css">
-.tablelist
+.tableadd
 {
 width: 40%;
 border-style:1px solid;
 border: 1px;
 border-collapse: collapse;
 vertical-align:middle;
-border-color: black;
+border-color: white;
 }
-.textfieldlist
+.textfieldadd
 {
 width: 580px;
 }
-.headerlist
+.headeradd
 {
 background-color: rgba(185,185,185,2);
 color: white;
@@ -28,52 +29,70 @@ border-left-color: rgba(185,185,185,2);
 border-top-color: rgba(185,185,185,2);
 border-bottom-color: rgba(185,185,185,2);
 }
-.buttonborderlist
+.buttonborderadd
 {
 border-color: black;
 }
-.buttonlist
+.buttonadd
 {
 background-color: rgba(100,177,255,2);
 border-color: rgba(100,177,255,2);
 color: white;
 }
-.fontlist
+.fontadd
 {
 font-family: sans-serif;
 font-size: 12px;
 }
-.mainlabellist
+.mainlabeladd
 {
 font-style: italic;
 font-weight: 600px;
 font-size: 18px;
 }
-.divlist
+.divadd
 {
 margin-top: 7%;
 }
 </style>
 </head>
 <body>
-<div class="divlist">
-<form action="myPets">
-<table class="tablelist" align="center" border="1">
+<div class="divadd">
+<form action="">
+<table class="tableadd" align="center" border="1">
 <tr>
-<td class="headerlist" colspan="4">Pet List</td>
+<td class="headeradd">Pet Information</td>
+<td align="right" class="headeradd"></td>
+</tr>
+<tr>
+<td colspan="2"class="fontadd" style="font-size: 14px;"><pre/>Name<pre/></td>
+</tr>
+<tr>
+<td colspan="2"> <input type="text" class="textfieldadd"/> <pre/></td>
+</tr>
+<tr>
+<td colspan="2"class="fontadd">Age<pre/></td>
+</tr>
+<tr>
+<td colspan="2"> <input type="text" class="textfieldadd"/> <pre/></td>
+</tr>
+<tr>
+<td colspan="2"class="fontadd">Place<pre/></td>
+</tr>
+<tr>
+<td colspan="2"> <input type="text" class="textfieldadd"/> <pre/></td>
+</tr>
+<tr>
+<td colspan="2">
+<table align="center">
+<tr>
+<td><input type="button" value="Add Pet" class="buttonadd"/> </td>
+<td><input type="button" value="Cancel" class="buttonadd"/></td>
+</tr>
+</table>
+ 
 
-</tr>
-<tr>
-<td class="fontlist" style="font-size: 14px;">Pet Id</td>
-<td class="fontlist" style="font-size: 14px;">Pet Name</td>
-<td class="fontlist" style="font-size: 14px;">Pet Age</td>
-<td class="fontlist" style="font-size: 14px;">Pet Place</td>
-</tr>
-<tr>
-<td > .</td>
-<td > .</td>
-<td > .</td>
-<td > .</td>
+</td>
 </tr>
 </table>
 </form>

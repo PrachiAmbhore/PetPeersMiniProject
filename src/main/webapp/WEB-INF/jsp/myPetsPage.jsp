@@ -57,7 +57,7 @@ margin-top: 7%;
 </head>
 <body>
 <div class="divlist">
-<form action="myPets">
+<form action="">
 <table class="tablelist" align="center" border="1">
 <tr>
 <td class="headerlist" colspan="4">Pet List</td>

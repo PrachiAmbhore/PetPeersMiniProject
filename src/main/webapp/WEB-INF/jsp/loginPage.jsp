@@ -57,10 +57,10 @@ margin-top: 7%;
 </head>
 <body>
 <div class="div">
-<form action="authenticateUser">
+<form action="">
 <table class="table" align="center" border="1">
 <tr>
-<td class="header">Login Page</td>
+<td class="header">Pet Shop</td>
 <td align="right" class="header"><input type="button" value="Signup" class="header buttonborder"></td>
 </tr>
 <tr>

@@ -96,7 +96,7 @@ margin-top: 7%;
 </head>
 <body>
 <div >
-<form action="home">
+<form action="">
 <table class="table" align="center" border="1">
 <tr>
 <td class="header">
