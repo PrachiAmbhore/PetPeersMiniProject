@@ -107,5 +107,4 @@ public class MainController{
 		modelAndView.addObject("buy","deletion done");
 		return modelAndView;
 	}
-
 }
