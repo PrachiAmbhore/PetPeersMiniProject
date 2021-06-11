@@ -14,6 +14,7 @@ import com.casestudy.exception.PetException;
 import com.casestudy.exception.UserException;
 import com.casestudy.model.Pet;
 import com.casestudy.model.User;
+import com.casestudy.service.PetService;
 import com.casestudy.service.UserService;
 import com.casestudy.validator.PetValidator;
 import com.casestudy.validator.UserValidator;
@@ -29,18 +30,20 @@ public class MainController{
 	@Autowired
 	private UserService userservice;
 	
+	@Autowired
+	private PetService petservice;
+	
 	@RequestMapping(value = "/save", method=RequestMethod.POST)
 	@ExceptionHandler({UserException.class})
-	public ModelAndView saveUser(@ModelAttribute("user") User user) throws UserException {
-		BindingResult bindingResult = null;
+	public ModelAndView saveUser(@ModelAttribute("user") User user , BindingResult bindingResult) throws UserException {
 		ModelAndView modelAndView = new ModelAndView("loginPage");
 		if(user.getuserName().length() <= 4) {
 			throw new UserException("Given name is too short");
 		}
-		
 		if(user.getuserPassword().length() <= 8) {
 			throw new UserException("Given paasword is too short");
-		} 
+		}
+		
 		uerValidator.validate(modelAndView,bindingResult);
 		userservice.saveUser(user);
 		modelAndView.addObject("save", user.getuserName());
@@ -51,10 +54,10 @@ public class MainController{
 	public ModelAndView authenticateUser(HttpRequest request, @ModelAttribute("user") User user) {
 		ModelAndView modelAndView = null;
 		if(user != null) {
-			userservice.authenticateUser();
-			User userNew = userservice.authenticateUser();
-			modelAndView = new ModelAndView("homePage");
-			modelAndView.addObject("authenticateUser", user.getuserName());
+			if(userservice.authenticateUser()) {
+				modelAndView = new ModelAndView("homePage");
+				modelAndView.addObject("authenticateUser", user.getuserName());
+			}
 		} else {
 			modelAndView = new ModelAndView("loginPage");
 			modelAndView.addObject("message", "Username or Password is wrong!!");
@@ -64,7 +67,8 @@ public class MainController{
 	
 	@RequestMapping(value = "/home", method=RequestMethod.GET)
 	public ModelAndView home(){
-		ModelAndView modelAndView = null;
+		ModelAndView modelAndView = new ModelAndView("homePage");
+		modelAndView.addObject(userservice.getMyPets(0));
 		return modelAndView;
 	}
 	
@@ -76,31 +80,31 @@ public class MainController{
 	
 	@RequestMapping(value = "/myPets", method=RequestMethod.GET)
 	public ModelAndView myPets(HttpRequest request){
-		ModelAndView modelAndView = new ModelAndView("myPetsPage");
-		
+		ModelAndView modelAndView = new ModelAndView("mypetsPage");
+		modelAndView.addObject(userservice.getMyPets(0));
 		return modelAndView;
 	}
 	
 	@RequestMapping(value = "/savePet", method=RequestMethod.POST)
 	@ExceptionHandler({PetException.class})
-	public ModelAndView savePet(@ModelAttribute("pet") Pet pet) throws PetException {
-		BindingResult bindingResult = null;
+	public ModelAndView savePet(@ModelAttribute("pet") Pet pet, BindingResult bindingResult ) throws PetException {
+		ModelAndView modelAndView = new ModelAndView("addPage");
 		if(pet.getpetName().length() <= 4) {
 			throw new PetException("Given name is too short");
 		}
-		
 		if(pet.getpetAge() <= 2) {
 			throw new PetException("Given age is too short");
 		} 
-		ModelAndView modelAndView = new ModelAndView("homePage");
 		petValidator.validate(modelAndView,bindingResult);
-		
+		petservice.savePet(pet);
 		return modelAndView;
 	}
 	
 	@RequestMapping(value = "/buyPet", method=RequestMethod.PUT)
 	public ModelAndView buyPet(HttpRequest request){
-		ModelAndView modelAndView = new ModelAndView();
+		ModelAndView modelAndView = new ModelAndView("myPetsPage");
+		userservice.buyPet(0);
+		modelAndView.addObject("buy","deletion done");
 		return modelAndView;
 	}
 

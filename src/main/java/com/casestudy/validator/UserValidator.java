@@ -15,9 +15,9 @@ public class UserValidator implements Validator{
 
 	@Override
 	public void validate(Object target, Errors errors) {
-		ValidationUtils.rejectIfEmpty(errors, "userid", "UserId is required");
-		ValidationUtils.rejectIfEmpty(errors, "username", "Username is Required");
-		ValidationUtils.rejectIfEmpty(errors, "userpassword", "Password is Required");
-		ValidationUtils.rejectIfEmpty(errors, "confirmpassword", "Confirm Password is Required");
+		ValidationUtils.rejectIfEmpty(errors, "userId", "UserId is required");
+		ValidationUtils.rejectIfEmpty(errors, "userName", "Username is Required");
+		ValidationUtils.rejectIfEmpty(errors, "userPassword", "Password is Required");
+		ValidationUtils.rejectIfEmpty(errors, "confirmPassword", "Confirm Password is Required");
 	}
 }

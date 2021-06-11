@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -59,10 +57,10 @@ margin-top: 7%;
 </head>
 <body>
 <div class="div">
-<form:form action="save" met>
+<form action="save">
 <table class="table" align="center" border="1">
 <tr>
-<td class="header">Registration</td>
+<td class="header">Pet Shop</td>
 <td align="right" class="header"><input type="button" value="Login" class="header buttonborder"></td>
 </tr>
 <tr>
@@ -72,13 +70,13 @@ margin-top: 7%;
 <td colspan="2"class="font">Name<pre/></td>
 </tr>
 <tr>
-<td colspan="2"> <form:input path="userName" class="textfield"/> <pre/></td>
+<td colspan="2"> <input type="text" class="textfield"/> <pre/></td>
 </tr>
 <tr>
 <td colspan="2" class="font"> Password<pre/></td>
 </tr>
 <tr>
-<td colspan="2"> <form:password path="userPassword" class="textfield"/> <pre/></td>
+<td colspan="2"> <input type="password" class="textfield"/> <pre/></td>
 </tr>
 <tr>
 <td colspan="2" class="font">Confirm Password<pre/></td>
@@ -90,7 +88,13 @@ margin-top: 7%;
 <td colspan="2"> <input type="button" value="Register" class="button"/> </td>
 </tr>
 </table>
-</form:form>
+</form>
+
+<table align="center">
+                <tr>
+                    <td style="font-style: italic; color: red;">${save}</td>
+                </tr>
+</table>
 </div>
 </body>
 </html>

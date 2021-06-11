@@ -96,8 +96,11 @@ margin-top: 7%;
 </head>
 <body>
 <div >
-<form action="">
+<form action="home">
 <table class="table" align="center" border="1">
+<tr>
+                <td>Welcome ${authenticateUser}</td>
+</tr>
 <tr>
 <td class="header">
 <table border="1" style="border-collapse: collapse; border-color: white;">

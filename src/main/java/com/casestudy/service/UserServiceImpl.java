@@ -12,7 +12,7 @@ public class UserServiceImpl implements UserService {
 	private UserDao userdao;
 
 	@Override
-	public User authenticateUser() {
+	public boolean authenticateUser() {
 		return userdao.authenticateUser();
 	}
 
@@ -27,8 +27,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void buyPet(int id, int a) {
-		userdao.buyPet(id, a);
+	public void buyPet(int id) {
+		userdao.buyPet(id);
 	}
 	
 

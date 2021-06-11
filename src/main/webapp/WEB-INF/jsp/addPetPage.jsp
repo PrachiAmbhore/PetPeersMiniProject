@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Add Pet</title>
 
 <style type="text/css">
 .tableadd
@@ -58,7 +58,7 @@ margin-top: 7%;
 </head>
 <body>
 <div class="divadd">
-<form action="">
+<form action="savePet">
 <table class="tableadd" align="center" border="1">
 <tr>
 <td class="headeradd">Pet Information</td>
@@ -96,6 +96,8 @@ margin-top: 7%;
 </tr>
 </table>
 </form>
+Pet Info
+${pet}
 </div>
 </body>
 </html>

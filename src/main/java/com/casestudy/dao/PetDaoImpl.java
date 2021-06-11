@@ -51,7 +51,7 @@ public class PetDaoImpl implements PetDao{
 	public void savePet(Pet pet) {
 		sessionfactory.openSession();
 		transaction = session.beginTransaction();
-		session.persist(pet); 
+		session.save(pet); 
 		transaction.commit();
 		session.close();
 	}
